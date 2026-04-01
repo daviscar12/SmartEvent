@@ -1,56 +1,81 @@
 <template>
   <ion-page>
-    <ion-header :translucent="true">
+    <ion-header>
       <ion-toolbar>
-        <ion-title>Blank</ion-title>
+        <ion-title>SmartEvent</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
+    <ion-content class="ion-padding">
+      <div class="home-container">
+        <ion-icon :icon="calendarOutline" class="home-icon"></ion-icon>
 
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <h1>Bem-vindo ao SmartEvent</h1>
+
+        <p class="descricao">
+          Encontre shows, palestras, esportes e workshops da sua região
+          de forma rápida e prática.
+        </p>
+
+        <ion-button expand="block" @click="irParaEventos">
+          Ver eventos
+        </ion-button>
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButton,
+  IonIcon
+} from '@ionic/vue'
+import { useRouter } from 'vue-router'
+import { calendarOutline } from 'ionicons/icons'
+
+const router = useRouter()
+
+function irParaEventos() {
+  router.push('/eventos')
+}
 </script>
 
 <style scoped>
-#container {
+.home-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.home-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: var(--ion-color-primary);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  
-  color: #8c8c8c;
-  
-  margin: 0;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
-#container a {
-  text-decoration: none;
+.descricao {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 24px;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+ion-button {
+  width: 100%;
+  max-width: 250px;
 }
 </style>
