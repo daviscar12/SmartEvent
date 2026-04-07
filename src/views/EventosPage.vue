@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button default-href="/home"></ion-back-button>
+          <ion-back-button default-href="/tabs/home"></ion-back-button>
         </ion-buttons>
         <ion-title>Eventos</ion-title>
       </ion-toolbar>
@@ -25,7 +25,7 @@
           class="item-evento"
           button
           :detail="false"
-          @click="irParaDetalhe(3)"
+          @click="irParaDetalhe(evento.id)"
         >
           <ion-card class="card-evento">
             <ion-card-header>
@@ -116,7 +116,7 @@ function irParaDetalhe(id: number) {
 //   router.push(`/detalhes`) --- IGNORE ---
   router.push({
     name: 'detalhes', // Use the name defined in the route config
-    params: { id: 3333333 }, // Pass parameters as an object
+    params: { id: id}, // Pass parameters as an object
   })
 }
 </script>

@@ -41,7 +41,7 @@ import { calendarOutline } from 'ionicons/icons'
 const router = useRouter()
 
 function irParaEventos() {
-  router.push('/eventos')
+  router.push('/tabs/eventos')
 }
 </script>
 

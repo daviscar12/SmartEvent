@@ -3,7 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-back-button default-href="/home"></ion-back-button>
+          <ion-back-button default-href="/tabs/home"></ion-back-button>
         </ion-buttons>
         <ion-title>Favoritos</ion-title>
       </ion-toolbar>
@@ -104,7 +104,7 @@ const favoritos = computed(() => {
 })
 
 function verDetalhes(id: number) {
-  router.push(`/eventos/${id}`)
+  router.push(`/detalhes/${id}`)
 }
 
 function removerFavorito(id: number) {
